@@ -122,12 +122,12 @@ const navConfig = [
   {
     subheader: 'app',
     items: [
-      {
-        title: 'mail',
-        path: PATH_DASHBOARD.mail.root,
-        icon: ICONS.mail,
-        info: <Label color="error">+32</Label>,
-      },
+      // {
+      //   title: 'mail',
+      //   path: PATH_DASHBOARD.mail.root,
+      //   icon: ICONS.mail,
+      //   info: <Label color="error">+32</Label>,
+      // },
       {
         title: 'chat',
         path: PATH_DASHBOARD.chat.root,

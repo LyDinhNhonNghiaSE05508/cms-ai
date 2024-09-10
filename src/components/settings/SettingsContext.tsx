@@ -18,7 +18,7 @@ const initialState: SettingsContextProps = {
   // Direction
   onToggleDirection: () => {},
   onChangeDirection: () => {},
-  onChangeDirectionByLang: () => {},
+  // onChangeDirectionByLang: () => {},
   // Layout
   onToggleLayout: () => {},
   onChangeLayout: () => {},
@@ -62,12 +62,12 @@ export function SettingsProvider({ children }: SettingsProviderProps) {
 
   const isArabic = langStorage === 'ar';
 
-  useEffect(() => {
-    if (isArabic) {
-      onChangeDirectionByLang('ar');
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isArabic]);
+  // useEffect(() => {
+  //   if (isArabic) {
+  //     onChangeDirectionByLang('ar');
+  //   }
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [isArabic]);
 
   // Mode
   const onToggleMode = useCallback(() => {
@@ -97,13 +97,13 @@ export function SettingsProvider({ children }: SettingsProviderProps) {
     [setSettings, settings]
   );
 
-  const onChangeDirectionByLang = useCallback(
-    (lang: string) => {
-      const themeDirection = lang === 'ar' ? 'rtl' : 'ltr';
-      setSettings({ ...settings, themeDirection });
-    },
-    [setSettings, settings]
-  );
+  // const onChangeDirectionByLang = useCallback(
+  //   (lang: string) => {
+  //     const themeDirection = lang === 'ar' ? 'rtl' : 'ltr';
+  //     setSettings({ ...settings, themeDirection });
+  //   },
+  //   [setSettings, settings]
+  // );
 
   // Layout
   const onToggleLayout = useCallback(() => {
@@ -162,7 +162,7 @@ export function SettingsProvider({ children }: SettingsProviderProps) {
       // Direction
       onToggleDirection,
       onChangeDirection,
-      onChangeDirectionByLang,
+
       // Layout
       onToggleLayout,
       onChangeLayout,
@@ -186,7 +186,7 @@ export function SettingsProvider({ children }: SettingsProviderProps) {
       // Direction
       onToggleDirection,
       onChangeDirection,
-      onChangeDirectionByLang,
+
       // Layout
       onToggleLayout,
       onChangeLayout,

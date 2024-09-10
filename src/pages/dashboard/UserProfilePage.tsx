@@ -26,6 +26,7 @@ import {
   ProfileGallery,
   ProfileFollowers,
 } from '../../sections/@dashboard/user/profile';
+import Example from 'src/components/testTable/table';
 
 // ----------------------------------------------------------------------
 
@@ -75,6 +76,8 @@ export default function UserProfilePage() {
 
   return (
     <>
+      {/* Helmet is a component from the react-helmet library that manages changes to the document head */}
+      {/* It allows you to control the document's title, meta tags, and other head elements */}
       <Helmet>
         <title> User: Profile | Minimal UI</title>
       </Helmet>
@@ -124,6 +127,9 @@ export default function UserProfilePage() {
         {TABS.map(
           (tab) => tab.value === currentTab && <Box key={tab.value}> {tab.component} </Box>
         )}
+
+        <Example/>
+        
       </Container>
     </>
   );

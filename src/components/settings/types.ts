@@ -40,7 +40,7 @@ export type SettingsContextProps = SettingsValueProps & {
   // Direction
   onToggleDirection: VoidFunction;
   onChangeDirection: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  onChangeDirectionByLang: (lang: string) => void;
+
 
   // Layout
   onToggleLayout: VoidFunction;

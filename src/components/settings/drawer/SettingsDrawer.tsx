@@ -125,9 +125,9 @@ export default function SettingsDrawer() {
             <StretchOptions />
           </Block>
 
-          <Block title="Presets">
+          {/* <Block title="Presets">
             <ColorPresetsOptions />
-          </Block>
+          </Block> */}
         </Scrollbar>
 
         <Box sx={{ p: SPACING, pt: 0 }}>
