@@ -10,7 +10,7 @@ import { useSettingsContext } from '../../components/settings';
 import CustomBreadcrumbs from '../../components/custom-breadcrumbs';
 // sections
 import { UserCard } from '../../sections/@dashboard/user/cards';
-import Example from 'src/components/testTable/table';
+import ExampleTable from 'src/components/table-custom/TS';
 
 // ----------------------------------------------------------------------
 
@@ -32,7 +32,7 @@ export default function UserCardsPage() {
             { name: 'Cards' },
           ]}
         />
-        <Example/>
+    
 
         <Box
           gap={3}
@@ -47,6 +47,7 @@ export default function UserCardsPage() {
             <UserCard key={user.id} user={user} />
           ))}
         </Box>
+        <ExampleTable/>
       </Container>
     </>
   );

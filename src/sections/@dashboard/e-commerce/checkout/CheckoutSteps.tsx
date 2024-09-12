@@ -9,6 +9,7 @@ import {
   StepperProps,
   StepConnector as MUIStepConnector,
 } from '@mui/material';
+import { StepIconProps as MuiStepIconProps } from '@mui/material/StepIcon';
 // components
 import Iconify from '../../../../components/iconify';
 
@@ -65,12 +66,8 @@ export default function CheckoutSteps({ steps, activeStep, sx, ...other }: Props
 
 // ----------------------------------------------------------------------
 
-type StepIconProps = {
-  active: boolean;
-  completed: boolean;
-};
-
-function StepIcon({ active, completed }: StepIconProps) {
+function StepIcon(props: MuiStepIconProps) {
+  const { active, completed } = props;
   return (
     <Stack
       alignItems="center"

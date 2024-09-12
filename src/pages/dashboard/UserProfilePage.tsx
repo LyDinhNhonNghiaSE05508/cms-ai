@@ -26,7 +26,7 @@ import {
   ProfileGallery,
   ProfileFollowers,
 } from '../../sections/@dashboard/user/profile';
-import Example from 'src/components/testTable/table';
+
 
 // ----------------------------------------------------------------------
 
@@ -127,8 +127,6 @@ export default function UserProfilePage() {
         {TABS.map(
           (tab) => tab.value === currentTab && <Box key={tab.value}> {tab.component} </Box>
         )}
-
-        <Example/>
         
       </Container>
     </>

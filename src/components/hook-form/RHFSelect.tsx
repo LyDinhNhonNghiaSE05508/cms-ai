@@ -77,7 +77,7 @@ export function RHFSelect({
 
 // ----------------------------------------------------------------------
 
-interface RHFMultiSelectProps extends SelectProps {
+interface RHFMultiSelectProps extends Omit<SelectProps, 'value' | 'onChange'> {
   name: string;
   label?: string;
   chip?: boolean;
@@ -88,6 +88,7 @@ interface RHFMultiSelectProps extends SelectProps {
     label: string;
     value: string;
   }[];
+  
 }
 
 export function RHFMultiSelect({

@@ -29,6 +29,8 @@ export default function AuthGuard({ children }: AuthGuardProps) {
     }
     return <Login />;
   }
+  console.log(requestedLocation,'requestedLocation');
+  
 
   if (requestedLocation && pathname !== requestedLocation) {
     setRequestedLocation(null);

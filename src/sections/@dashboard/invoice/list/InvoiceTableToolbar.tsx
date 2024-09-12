@@ -83,24 +83,30 @@ export default function InvoiceTableToolbar({
         label="Start date"
         value={filterStartDate}
         onChange={onFilterStartDate}
-        slotProps={{
-          textField: {
-            fullWidth: true,
-            sx: { maxWidth: { md: INPUT_WIDTH } }
-          }
-        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            fullWidth
+            sx={{
+              maxWidth: { md: INPUT_WIDTH },
+            }}
+          />
+        )}
       />
 
       <DatePicker
         label="End date"
         value={filterEndDate}
         onChange={onFilterEndDate}
-        slotProps={{
-          textField: {
-            fullWidth: true,
-            sx: { maxWidth: { md: INPUT_WIDTH } }
-          }
-        }}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            fullWidth
+            sx={{
+              maxWidth: { md: INPUT_WIDTH },
+            }}
+          />
+        )}
       />
 
       <TextField

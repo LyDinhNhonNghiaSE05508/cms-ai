@@ -121,9 +121,9 @@ export default function SettingsDrawer() {
             <LayoutOptions />
           </Block>
 
-          <Block title="Stretch" tooltip="Only available at large resolutions > 1600px (xl)">
+          {/* <Block title="Stretch" tooltip="Only available at large resolutions > 1600px (xl)">
             <StretchOptions />
-          </Block>
+          </Block> */}
 
           {/* <Block title="Presets">
             <ColorPresetsOptions />

@@ -94,21 +94,31 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
   const initialize = useCallback(async () => {
     try {
-      // Bypass authentication check and set user as authenticated
-      const mockUser: AuthUserType = {
-        id: '1',
-        email: 'bypass@example.com',
-        name: 'Bypassed User',
-        // Add other necessary user properties
-      };
+      const accessToken = storageAvailable ? localStorage.getItem('accessToken') : '';
 
-      dispatch({
-        type: Types.INITIAL,
-        payload: {
-          isAuthenticated: true,
-          user: mockUser,
-        },
-      });
+      if (accessToken && isValidToken(accessToken)) {
+        setSession(accessToken);
+
+        const response = await axios.get('/api/account/my-account');
+
+        const { user } = response.data;
+
+        dispatch({
+          type: Types.INITIAL,
+          payload: {
+            isAuthenticated: true,
+            user,
+          },
+        });
+      } else {
+        dispatch({
+          type: Types.INITIAL,
+          payload: {
+            isAuthenticated: false,
+            user: null,
+          },
+        });
+      }
     } catch (error) {
       console.error(error);
       dispatch({
@@ -119,25 +129,26 @@ export function AuthProvider({ children }: AuthProviderProps) {
         },
       });
     }
-  }, []);
+  }, [storageAvailable]);
 
   useEffect(() => {
     initialize();
   }, [initialize]);
 
-  // Bypass login function
+  // LOGIN
   const login = useCallback(async (email: string, password: string) => {
-    const mockUser: AuthUserType = {
-      id: '1',
+    const response = await axios.post('/api/account/login', {
       email,
-      name: 'Bypassed User',
-      // Add other necessary user properties
-    };
+      password,
+    });
+    const { accessToken, user } = response.data;
+
+    setSession(accessToken);
 
     dispatch({
       type: Types.LOGIN,
       payload: {
-        user: mockUser,
+        user,
       },
     });
   }, []);

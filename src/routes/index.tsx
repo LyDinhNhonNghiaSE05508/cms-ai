@@ -167,11 +167,11 @@ export default function Router() {
 
     // Dashboard
     {
-      path: 'dashboard',
+      path:"dashboard",
       element: (
-        <AuthGuard>
+        // <AuthGuard>
           <DashboardLayout />
-        </AuthGuard>
+        // </AuthGuard> 
       ),
       children: [
         { element: <Navigate to={PATH_AFTER_LOGIN} replace />, index: true },
@@ -252,7 +252,7 @@ export default function Router() {
 
     // Main Routes
     {
-      
+      path:'home',
       element: <MainLayout />,
       children: [
         { element: <HomePage />, index: true },
@@ -356,6 +356,7 @@ export default function Router() {
         { path: '403', element: <Page403 /> },
       ],
     },
+    { path: '/', element: <Navigate to="/dashboard" replace /> },
     { path: '*', element: <Navigate to="/404" replace /> },
   ]);
 }
